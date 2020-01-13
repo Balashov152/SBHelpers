@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SBHelpers'
-  s.version          = '0.1.6'
+  s.version          = '0.1.7'
   s.summary          = 'SBHelpers write on Swift 5.0. Include extensions and structs for making life easier'
   s.swift_versions   = '5.0'
 # This description is used to generate tags and improve search results.
