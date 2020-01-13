@@ -12,7 +12,7 @@ import RxSwift
 import UIKit
 
 public class RxCollectionViewCell: UICollectionViewCell, RxViewModable {
-    var disposeBag = DisposeBag()
+    public var disposeBag = DisposeBag()
 
     override init(frame: CGRect) {
         super.init(frame: frame)

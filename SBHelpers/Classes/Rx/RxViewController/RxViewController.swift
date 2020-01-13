@@ -11,7 +11,7 @@ import RxSwift
 import UIKit
 
 class RxViewControllerJ<ViewModel: RxViewModel>: RxViewController {
-    var viewModel: ViewModel!
+    public var viewModel: ViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class RxViewControllerJ<ViewModel: RxViewModel>: RxViewController {
 }
 
 class RxViewController: UIViewController {
-    let disposeBag = DisposeBag()
+    public let disposeBag = DisposeBag()
 
     override func loadView() {
         super.loadView()

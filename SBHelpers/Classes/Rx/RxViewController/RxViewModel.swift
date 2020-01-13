@@ -12,7 +12,7 @@ import UIKit
 import RxViewController
 
 open class RxViewModel: ActivityTracker, ErrorHandler {
-    let disposeBag = DisposeBag()
+    public let disposeBag = DisposeBag()
     public let activityIndicator = ActivityIndicator()
 
     public let error = PublishSubject<Error>()
