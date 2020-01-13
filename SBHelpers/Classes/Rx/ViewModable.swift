@@ -17,6 +17,9 @@ public protocol RxViewModable: AnyObject {
 }
 
 public struct ConfigureViewModable<S> where S: SectionModelType {
+    
+    public init() {}
+    
     public let configureCell: (TableViewSectionedDataSource<S>, UITableView, IndexPath, TableSectionItem) -> UITableViewCell = { (_, tableView, indexPath, item) -> UITableViewCell in
         guard let cell: RxViewModable = tableView.dequeueReusableViewModable(cellType: item.cellType, for: indexPath) else { return .init() }
         cell.setupWith(viewModel: item)
