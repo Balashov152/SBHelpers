@@ -9,7 +9,7 @@
 import class UIKit.UICollectionView
 
 extension UICollectionView {
-    func dequeueReusableViewModable(cellType: RxCollectionViewCell.Type, for indexPath: IndexPath) -> RxViewModable {
+    public func dequeueReusableViewModable(cellType: RxCollectionViewCell.Type, for indexPath: IndexPath) -> RxViewModable {
         guard let viewModelble = dequeueReusableCell(withReuseIdentifier: "\(cellType)", for: indexPath) as? RxViewModable else {
             assertionFailure("Cell is not RxViewModable")
             return dequeueReusableViewModable(cellType: RxCollectionViewCell.self, for: indexPath)

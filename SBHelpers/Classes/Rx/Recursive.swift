@@ -12,7 +12,7 @@ import RxSwift
 public struct Recursive {
     public static var deadlineDispose = 0.5
 
-    static func recursive<Element>(elements: [Element],
+    static public func recursive<Element>(elements: [Element],
                                    method: @escaping ((Element) -> Single<Void>),
                                    error: @escaping ((Error) -> Single<Void>) = { _ in Single<Void>.just(()) }) -> Single<Void> {
         guard !elements.isEmpty, let first = elements.first else {
@@ -27,7 +27,7 @@ public struct Recursive {
         }
     }
 
-    static func recursiveOnDispose<Element>(elements: [Element],
+    static public func recursiveOnDispose<Element>(elements: [Element],
                                             method: @escaping ((Element) -> Single<Void>),
                                             error: @escaping ((Error) -> Single<Void>) = { _ in Single<Void>.just(()) }) -> Single<Void> {
         guard !elements.isEmpty, let first = elements.first else {

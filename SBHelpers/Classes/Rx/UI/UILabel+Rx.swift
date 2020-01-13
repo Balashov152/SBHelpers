@@ -11,7 +11,7 @@ import RxKeyboard
 import RxSwift
 
 extension Reactive where Base: UILabel {
-    var textColor: Binder<UIColor> {
+    public var textColor: Binder<UIColor> {
         Binder<UIColor>.init(base.self) { label, color in
             label.textColor = color
         }

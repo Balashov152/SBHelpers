@@ -19,7 +19,7 @@ extension Reactive where Base: UIButton {
         )
     }
 
-    var nonAnimationTitle: Binder<String?> {
+    public var nonAnimationTitle: Binder<String?> {
         return Binder<String?>(base, binding: { button, title in
             UIView.performWithoutAnimation {
                 button.setTitle(title, for: .normal)

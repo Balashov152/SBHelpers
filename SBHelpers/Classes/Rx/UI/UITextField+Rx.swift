@@ -11,13 +11,13 @@ import RxSwift
 import UIKit
 
 extension Reactive where Base: UITextField {
-    func attributedPlaceholder(font: UIFont) -> Binder<String> {
+    public func attributedPlaceholder(font: UIFont) -> Binder<String> {
         return Binder(base.self) { textField, placeholer in
             textField.attributedPlaceholder = NSAttributedString(string: placeholer, attributes: [.font: font])
         }
     }
 
-    var placeholer: Binder<String?> {
+    public var placeholer: Binder<String?> {
         return Binder(base.self) { textField, placeholer in
             textField.placeholder = placeholer
         }
