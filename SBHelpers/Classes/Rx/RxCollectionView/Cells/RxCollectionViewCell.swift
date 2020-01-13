@@ -14,7 +14,7 @@ import UIKit
 open class RxCollectionViewCell: UICollectionViewCell, RxViewModable {
     public var disposeBag = DisposeBag()
 
-    override open init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .clear
         commonInit()

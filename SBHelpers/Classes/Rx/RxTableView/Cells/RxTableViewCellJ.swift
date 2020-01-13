@@ -14,7 +14,7 @@ import UIKit
 open class RxTableViewCell: UITableViewCell {
     public var disposeBag = DisposeBag()
 
-    override open init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    override public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
         backgroundColor = .clear
