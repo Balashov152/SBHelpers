@@ -33,13 +33,13 @@ public protocol RowViewModelActionble {
 }
 
 public extension Reactive where Base: UITableView {
-    public func actionModelSelected<Model: RowViewModelActionble>(_ type: Model.Type) -> Disposable {
+    func actionModelSelected<Model: RowViewModelActionble>(_ type: Model.Type) -> Disposable {
         return base.rx.modelSelected(type).action()
     }
 }
 
 public extension ObservableType where E: RowViewModelActionble {
-    public func action() -> Disposable {
+    func action() -> Disposable {
         return subscribe(onNext: { $0.action.onNext(()) })
     }
 }
