@@ -1,0 +1,15 @@
+platform :ios, '11.0'
+use_frameworks!
+inhibit_all_warnings!
+supports_swift_versions '>= 5.0'
+
+target 'SBHelpers_Example' do
+  pod 'SBHelpers', :path => '../'
+  pod 'SBHelpers/Rx', :path => '../'
+
+  target 'SBHelpers_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

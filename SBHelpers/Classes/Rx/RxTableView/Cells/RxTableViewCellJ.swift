@@ -1,0 +1,37 @@
+//
+//  RxTableViewCellJ.swift
+//  SellFashion
+//
+//  Created by Sergey Balashov on 09.01.2020.
+//  Copyright © 2020 Egor Otmakhov. All rights reserved.
+//
+
+import RxCocoa
+import RxDataSources
+import RxSwift
+import UIKit
+
+public class RxTableViewCell: UITableViewCell {
+    var disposeBag = DisposeBag()
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
+        backgroundColor = .clear
+        commonInit()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        selectionStyle = .none
+        backgroundColor = .clear
+        commonInit()
+    }
+
+    public override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
+
+    open func commonInit() {}
+}
