@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public class NibView: UIView {
+open class NibView: UIView {
     var view: UIView!
     override init(frame: CGRect) {
         super.init(frame: frame)

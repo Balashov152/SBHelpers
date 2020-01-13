@@ -11,7 +11,7 @@ import RxDataSources
 import RxSwift
 import UIKit
 
-public class RxTableViewCell: UITableViewCell {
+open class RxTableViewCell: UITableViewCell {
     public var disposeBag = DisposeBag()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

@@ -11,7 +11,7 @@ import RxDataSources
 import RxSwift
 import UIKit
 
-public class TableSectionItem: IdentifiableType, Equatable, RowViewModel, RowViewModelActionble {
+open class TableSectionItem: IdentifiableType, Equatable, RowViewModel, RowViewModelActionble {
     public static func == (lhs: TableSectionItem, rhs: TableSectionItem) -> Bool {
         return lhs.identity == rhs.identity
     }

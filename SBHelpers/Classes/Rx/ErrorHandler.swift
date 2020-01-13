@@ -14,7 +14,7 @@ public protocol ErrorHandler {
     var error: PublishSubject<Error> { get }
 }
 
-public class ErrorHandlerConfig {
+open class ErrorHandlerConfig {
     public static var handlerError = HandlerError()
 }
 

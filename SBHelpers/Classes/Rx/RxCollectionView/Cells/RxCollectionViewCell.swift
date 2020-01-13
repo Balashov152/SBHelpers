@@ -11,7 +11,7 @@ import RxDataSources
 import RxSwift
 import UIKit
 
-public class RxCollectionViewCell: UICollectionViewCell, RxViewModable {
+open class RxCollectionViewCell: UICollectionViewCell, RxViewModable {
     public var disposeBag = DisposeBag()
 
     override init(frame: CGRect) {
