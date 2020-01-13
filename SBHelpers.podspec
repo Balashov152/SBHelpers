@@ -32,16 +32,15 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '11.0'
   s.pod_target_xcconfig = { "SWIFT_VERSION" => "5.0" }
 
-  s.source_files = 'SBHelpers/Classes/**/*'
   s.frameworks = 'UIKit', 'Foundation'
   
   s.subspec "Core" do |ss|
-    ss.source_files = "Classes/Core/"
+    ss.source_files = "SBHelpers/Classes/Core/**/*"
     ss.dependency 'AlamofireImage', '~> 3.5'
   end
 
   s.subspec "Rx" do |ss|
-    ss.source_files = "Classes/Rx/"
+    ss.source_files = "SBHelpers/Classes/Rx/**/*"
     ss.dependency "RxSwift", "~> 4.5"
     ss.dependency "RxCocoa", "~> 4.5"
     ss.dependency "RxDataSources", "~> 3.1"

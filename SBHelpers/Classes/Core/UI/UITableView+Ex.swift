@@ -16,24 +16,24 @@ import class UIKit.UITableView
 import class UIKit.UITableViewCell
 
 public extension UITableView {
-    public func register<T>(cell: T.Type) where T: UITableViewCell {
+    func register<T>(cell: T.Type) where T: UITableViewCell {
         register(cell, forCellReuseIdentifier: "\(cell)")
     }
 
-    public func register<T>(nib: T.Type) where T: UITableViewCell {
+    func register<T>(nib: T.Type) where T: UITableViewCell {
         register(UINib(nibName: "\(nib)", bundle: Bundle(for: nib)), forCellReuseIdentifier: "\(nib)")
     }
 
-    public func dequeueReusableCell<T: UITableViewCell>(for indexPath: IndexPath) -> T {
+    func dequeueReusableCell<T: UITableViewCell>(for indexPath: IndexPath) -> T {
         return dequeueReusableCell(withIdentifier: "\(T.self)", for: indexPath) as! T // swiftlint:disable:this force_cast
     }
 
-    public func dequeueReusableCell<T: UITableViewCell>(for row: Int) -> T {
+    func dequeueReusableCell<T: UITableViewCell>(for row: Int) -> T {
         let indexPath = IndexPath(row: row, section: 0)
         return dequeueReusableCell(withIdentifier: "\(T.self)", for: indexPath) as! T // swiftlint:disable:this force_cast
     }
 
-    public func scrollToBottom(animated: Bool) {
+    func scrollToBottom(animated: Bool) {
         DispatchQueue.main.async {
 //            debugPrint("contentInset.bottom", self.adjustedContentInset.bottom)
 //            debugPrint("contentInset.top", self.adjustedContentInset.top)

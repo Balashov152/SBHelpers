@@ -9,7 +9,7 @@
 import UIKit
 
 public extension UIImage {
-    public func jpegData(maxSizeKB: Int, compress: CGFloat = 1.0) -> Data? {
+    func jpegData(maxSizeKB: Int, compress: CGFloat = 1.0) -> Data? {
         if let data = jpegData(compressionQuality: compress) {
             let bcf = ByteCountFormatter()
             bcf.allowedUnits = [.useKB]
@@ -24,7 +24,7 @@ public extension UIImage {
         return jpegData(maxSizeKB: maxSizeKB, compress: compress - 0.05)
     }
 
-    public func resizeImageSquare() -> UIImage? {
+    func resizeImageSquare() -> UIImage? {
         defer {
             UIGraphicsEndImageContext()
         }
@@ -38,7 +38,7 @@ public extension UIImage {
         return nil
     }
 
-    private func resizeImage(image: UIImage, newWidth: CGFloat, completion: @escaping (UIImage) -> Void) {
+    func resizeImage(image: UIImage, newWidth: CGFloat, completion: @escaping (UIImage) -> Void) {
         DispatchQueue.global(qos: .userInitiated).async {
             let scale = newWidth / image.size.width
             let newHeight = image.size.height * scale

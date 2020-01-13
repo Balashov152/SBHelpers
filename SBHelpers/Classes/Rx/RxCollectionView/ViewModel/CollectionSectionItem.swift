@@ -11,16 +11,16 @@ import RxDataSources
 import RxSwift
 import UIKit
 
-class CollectionSectionItem: IdentifiableType, Equatable, RowViewModel, RowViewModelActionble {
-    static func == (lhs: CollectionSectionItem, rhs: CollectionSectionItem) -> Bool {
+public class CollectionSectionItem: IdentifiableType, Equatable, RowViewModel, RowViewModelActionble {
+    public static func == (lhs: CollectionSectionItem, rhs: CollectionSectionItem) -> Bool {
         return lhs.identity == rhs.identity
     }
 
-    typealias Identity = Int
-    var identity: Identity
+    public typealias Identity = Int
+    public var identity: Identity
 
-    var cellType: RxCollectionViewCell.Type
-    var action = PublishSubject<Void>()
+    public var cellType: RxCollectionViewCell.Type
+    public var action = PublishSubject<Void>()
 
     init<Value: Hashable>(identity: Value, cellType: RxCollectionViewCell.Type) {
         self.identity = identity.hashValue

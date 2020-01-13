@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 public extension UIApplication {
-    class public var topViewController: UIViewController? {
+    class var topViewController: UIViewController? {
         return getTopViewController(base: shared.keyWindow?.rootViewController)
     }
 

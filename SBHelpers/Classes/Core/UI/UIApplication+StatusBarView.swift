@@ -11,10 +11,10 @@ import UIKit
 
 public extension UIApplication {
     
-    public var statusBarViewAnimationDuration: Double { 0.3 }
+    var statusBarViewAnimationDuration: Double { 0.3 }
     
     /// Returns the status bar UIView
-    public var statusBarView: UIView? {
+    var statusBarView: UIView? {
         if #available(iOS 13.0, *) {} else {
             if responds(to: Selector(("statusBar"))) {
                 return value(forKey: "statusBar") as? UIView
@@ -23,17 +23,17 @@ public extension UIApplication {
         return nil
     }
 
-    public func changeStatusBar(alpha: CGFloat) {
+    func changeStatusBar(alpha: CGFloat) {
         statusBarView?.alpha = alpha
     }
 
-    public func hideStatusBar() {
+    func hideStatusBar() {
         UIView.animate(withDuration: statusBarViewAnimationDuration) {
             self.statusBarView?.alpha = 0
         }
     }
 
-    public func showStatusBar() {
+    func showStatusBar() {
         UIView.animate(withDuration: statusBarViewAnimationDuration) {
             self.statusBarView?.alpha = 1
         }

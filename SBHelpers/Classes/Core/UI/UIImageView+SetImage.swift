@@ -11,13 +11,13 @@ import AlamofireImage
 import UIKit
 
 public extension UIImageView {
-    public func newActivityIndicator() -> UIActivityIndicatorView {
+    func newActivityIndicator() -> UIActivityIndicatorView {
         let activityIndicator = UIActivityIndicatorView(style: .gray)
         activityIndicator.hidesWhenStopped = true
         return activityIndicator
     }
 
-    public func setImage(urlRequest request: URLRequest, result: ((DataResponse<UIImage>) -> Void)?) {
+    func setImage(urlRequest request: URLRequest, result: ((DataResponse<UIImage>) -> Void)?) {
         var activityIndicator: UIActivityIndicatorView! = subviews.first(where: { $0 is UIActivityIndicatorView }) as? UIActivityIndicatorView
 
         if activityIndicator == nil {

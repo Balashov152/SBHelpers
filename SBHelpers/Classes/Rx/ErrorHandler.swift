@@ -9,7 +9,7 @@
 import RxCocoa
 import RxSwift
 
-protocol ErrorHandler {
+public protocol ErrorHandler {
     var showErrorAlert: Bool { get }
     var error: PublishSubject<Error> { get }
 }
@@ -24,8 +24,8 @@ open class HandlerError {
     }
 }
 
-extension PrimitiveSequence where TraitType == SingleTrait {
-    func catchError(_ handler: ErrorHandler, empty: Element) -> Observable<E> {
+public extension PrimitiveSequence where TraitType == SingleTrait {
+    public func catchError(_ handler: ErrorHandler, empty: Element) -> Observable<E> {
         catchError { (error) -> Single<E> in
             if ErrorHandlerConfig.handlerError.needHandlerError(error: error) {
                 handler.error.onNext(error)
@@ -34,7 +34,7 @@ extension PrimitiveSequence where TraitType == SingleTrait {
         }.asObservable()
     }
 
-    func catchErrorNever(_ handler: ErrorHandler) -> Observable<E> {
+    public func catchErrorNever(_ handler: ErrorHandler) -> Observable<E> {
         catchError { (error) -> Single<E> in
             if ErrorHandlerConfig.handlerError.needHandlerError(error: error) {
                 handler.error.onNext(error)
@@ -43,7 +43,7 @@ extension PrimitiveSequence where TraitType == SingleTrait {
         }.asObservable()
     }
 
-    func catchError(_ handler: ErrorHandler, empty: Element) -> Single<E> {
+    public func catchError(_ handler: ErrorHandler, empty: Element) -> Single<E> {
         catchError { (error) -> Single<E> in
             if ErrorHandlerConfig.handlerError.needHandlerError(error: error) {
                 handler.error.onNext(error)
@@ -52,7 +52,7 @@ extension PrimitiveSequence where TraitType == SingleTrait {
         }
     }
 
-    func catchErrorNever(_ handler: ErrorHandler) -> Single<E> {
+    public func catchErrorNever(_ handler: ErrorHandler) -> Single<E> {
         catchError { (error) -> Single<E> in
             if ErrorHandlerConfig.handlerError.needHandlerError(error: error) {
                 handler.error.onNext(error)
@@ -62,8 +62,8 @@ extension PrimitiveSequence where TraitType == SingleTrait {
     }
 }
 
-extension Observable {
-    func catchErrorNever(_ handler: ErrorHandler) -> Observable<E> {
+public extension Observable {
+    public func catchErrorNever(_ handler: ErrorHandler) -> Observable<E> {
         catchError { (error) -> Observable<E> in
             if ErrorHandlerConfig.handlerError.needHandlerError(error: error) {
                 handler.error.onNext(error)
@@ -72,7 +72,7 @@ extension Observable {
         }.asObservable()
     }
 
-    func catchError(_ handler: ErrorHandler, empty: Element) -> Observable<E> {
+    public func catchError(_ handler: ErrorHandler, empty: Element) -> Observable<E> {
         catchError { (error) -> Observable<E> in
             if ErrorHandlerConfig.handlerError.needHandlerError(error: error) {
                 handler.error.onNext(error)

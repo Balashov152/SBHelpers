@@ -11,7 +11,7 @@ import RxDataSources
 import RxSwift
 import UIKit
 
-class RxCollectionViewCell: UICollectionViewCell, RxViewModable {
+public class RxCollectionViewCell: UICollectionViewCell, RxViewModable {
     var disposeBag = DisposeBag()
 
     override init(frame: CGRect) {
@@ -26,11 +26,11 @@ class RxCollectionViewCell: UICollectionViewCell, RxViewModable {
         commonInit()
     }
 
-    override func prepareForReuse() {
+    override public func prepareForReuse() {
         super.prepareForReuse()
         disposeBag = DisposeBag()
     }
 
     open func commonInit() {}
-    func setupWith(viewModel _: RowViewModel) {}
+    open func setupWith(viewModel _: RowViewModel) {}
 }

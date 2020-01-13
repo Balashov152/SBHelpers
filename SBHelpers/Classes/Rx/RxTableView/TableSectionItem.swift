@@ -11,16 +11,16 @@ import RxDataSources
 import RxSwift
 import UIKit
 
-class TableSectionItem: IdentifiableType, Equatable, RowViewModel, RowViewModelActionble {
-    static func == (lhs: TableSectionItem, rhs: TableSectionItem) -> Bool {
+public class TableSectionItem: IdentifiableType, Equatable, RowViewModel, RowViewModelActionble {
+    public static func == (lhs: TableSectionItem, rhs: TableSectionItem) -> Bool {
         return lhs.identity == rhs.identity
     }
 
-    typealias Identity = Int
-    var identity: Identity
+    public typealias Identity = Int
+    public var identity: Identity
 
-    var cellType: RxTableViewCell.Type
-    var action = PublishSubject<Void>()
+    open var cellType: RxTableViewCell.Type
+    open var action = PublishSubject<Void>()
 
     init<Value: Hashable>(identity: Value, cellType: RxTableViewCell.Type) {
         self.identity = identity.hashValue
@@ -28,18 +28,18 @@ class TableSectionItem: IdentifiableType, Equatable, RowViewModel, RowViewModelA
     }
 }
 
-protocol RowViewModelActionble {
+public protocol RowViewModelActionble {
     var action: PublishSubject<Void> { get set }
 }
 
-extension Reactive where Base: UITableView {
-    func actionModelSelected<Model: RowViewModelActionble>(_ type: Model.Type) -> Disposable {
+public extension Reactive where Base: UITableView {
+    public func actionModelSelected<Model: RowViewModelActionble>(_ type: Model.Type) -> Disposable {
         return base.rx.modelSelected(type).action()
     }
 }
 
-extension ObservableType where E: RowViewModelActionble {
-    func action() -> Disposable {
+public extension ObservableType where E: RowViewModelActionble {
+    public func action() -> Disposable {
         return subscribe(onNext: { $0.action.onNext(()) })
     }
 }

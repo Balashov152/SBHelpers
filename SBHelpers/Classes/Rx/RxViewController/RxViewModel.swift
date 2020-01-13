@@ -15,8 +15,8 @@ open class RxViewModel: ActivityTracker, ErrorHandler {
     let disposeBag = DisposeBag()
     public let activityIndicator = ActivityIndicator()
 
-    let error = PublishSubject<Error>()
-    var showErrorAlert = true
+    public let error = PublishSubject<Error>()
+    public var showErrorAlert = true
 
     open func commonInit() {
         setupBindings()
