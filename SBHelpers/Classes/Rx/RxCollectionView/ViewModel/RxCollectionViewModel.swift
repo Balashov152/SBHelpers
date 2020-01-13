@@ -17,8 +17,8 @@ public protocol RxCollectionViewModeble: ErrorHandler, ActivityTracker {
 }
 
 open class RxCollectionViewModel: RxViewModel, RxCollectionViewModeble {
-    typealias TypeSection = String
-    var sections = BehaviorRelay<[Section]>(value: [])
+    public typealias TypeSection = String
+    public var sections = BehaviorRelay<[Section]>(value: [])
 }
 
 public protocol RxSaveCollectionViewModelble: RxCollectionViewModel {
@@ -27,6 +27,6 @@ public protocol RxSaveCollectionViewModelble: RxCollectionViewModel {
 }
 
 open class RxSaveCollectionViewModel: RxCollectionViewModel, RxSaveCollectionViewModelble {
-    var didTapSaveButton = PublishSubject<Void>()
-    var isEnableSaveButton = BehaviorRelay<Bool>(value: false)
+    public var didTapSaveButton = PublishSubject<Void>()
+    public var isEnableSaveButton = BehaviorRelay<Bool>(value: false)
 }

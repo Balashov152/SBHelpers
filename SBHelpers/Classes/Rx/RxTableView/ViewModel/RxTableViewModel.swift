@@ -16,8 +16,8 @@ public protocol RxTableViewModeble: ErrorHandler, ActivityTracker {
 }
 
 open class RxTableViewModel: RxViewModel, RxTableViewModeble {
-    typealias Section = AnimatableSectionModel<String, TableSectionItem>
-    var sections = BehaviorRelay<[Section]>(value: [])
+    public typealias Section = AnimatableSectionModel<String, TableSectionItem>
+    public var sections = BehaviorRelay<[Section]>(value: [])
 }
 
 public protocol RxSaveViewModelble: RxTableViewModel {
@@ -26,6 +26,6 @@ public protocol RxSaveViewModelble: RxTableViewModel {
 }
 
 open class RxSaveViewModel: RxTableViewModel, RxSaveViewModelble {
-    var didTapSaveButton = PublishSubject<Void>()
-    var isEnableSaveButton = BehaviorRelay<Bool>(value: false)
+    public var didTapSaveButton = PublishSubject<Void>()
+    public var isEnableSaveButton = BehaviorRelay<Bool>(value: false)
 }
