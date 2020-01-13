@@ -22,7 +22,7 @@ open class TableSectionItem: IdentifiableType, Equatable, RowViewModel, RowViewM
     open var cellType: RxTableViewCell.Type
     open var action = PublishSubject<Void>()
 
-    init<Value: Hashable>(identity: Value, cellType: RxTableViewCell.Type) {
+    public init<Value: Hashable>(identity: Value, cellType: RxTableViewCell.Type) {
         self.identity = identity.hashValue
         self.cellType = cellType
     }

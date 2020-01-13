@@ -24,7 +24,7 @@ open class RxViewModel: ActivityTracker, ErrorHandler {
 
     open func setupBindings() {}
 
-    init(viewController: UIViewController) {
+    public init(viewController: UIViewController) {
         debugPrint("init with ViewController", type(of: self))
         viewController.rx.viewDidLoad.subscribe(onNext: { [weak self] in
             self?.commonInit()

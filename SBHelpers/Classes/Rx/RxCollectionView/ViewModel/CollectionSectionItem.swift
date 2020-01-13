@@ -22,7 +22,7 @@ open class CollectionSectionItem: IdentifiableType, Equatable, RowViewModel, Row
     public var cellType: RxCollectionViewCell.Type
     public var action = PublishSubject<Void>()
 
-    init<Value: Hashable>(identity: Value, cellType: RxCollectionViewCell.Type) {
+    public init<Value: Hashable>(identity: Value, cellType: RxCollectionViewCell.Type) {
         self.identity = identity.hashValue
         self.cellType = cellType
     }

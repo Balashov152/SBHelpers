@@ -13,13 +13,13 @@ import UIKit
 open class RxViewControllerJ<ViewModel: RxViewModel>: RxViewController {
     public var viewModel: ViewModel!
 
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         setupBindings()
         setupNavigation()
     }
 
-    override public func setupBindings() {
+    override open func setupBindings() {
         super.setupBindings()
         viewModel.error
             .filter { [weak self] _ in self?.viewModel.showErrorAlert ?? false }
@@ -30,7 +30,7 @@ open class RxViewControllerJ<ViewModel: RxViewModel>: RxViewController {
 open class RxViewController: UIViewController {
     public let disposeBag = DisposeBag()
 
-    override public func loadView() {
+    override open func loadView() {
         super.loadView()
         view.backgroundColor = .white
     }

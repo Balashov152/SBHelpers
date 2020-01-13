@@ -17,14 +17,14 @@ public protocol RxViewModable: AnyObject {
 }
 
 public struct ConfigureViewModable<S> where S: SectionModelType {
-    let configureCell: (TableViewSectionedDataSource<S>, UITableView, IndexPath, TableSectionItem) -> UITableViewCell = { (_, tableView, indexPath, item) -> UITableViewCell in
+    public let configureCell: (TableViewSectionedDataSource<S>, UITableView, IndexPath, TableSectionItem) -> UITableViewCell = { (_, tableView, indexPath, item) -> UITableViewCell in
         guard let cell: RxViewModable = tableView.dequeueReusableViewModable(cellType: item.cellType, for: indexPath) else { return .init() }
         cell.setupWith(viewModel: item)
         return cell as? RxTableViewCell ?? RxTableViewCell()
     }
 
-    typealias CollecitonConfigureCell = (CollectionViewSectionedDataSource<S>, UICollectionView, IndexPath, CollectionSectionItem) -> UICollectionViewCell
-    let collectionConfigureCell: CollecitonConfigureCell = { (_, collectionView, indexPath, item) -> UICollectionViewCell in
+    public typealias CollecitonConfigureCell = (CollectionViewSectionedDataSource<S>, UICollectionView, IndexPath, CollectionSectionItem) -> UICollectionViewCell
+    public let collectionConfigureCell: CollecitonConfigureCell = { (_, collectionView, indexPath, item) -> UICollectionViewCell in
         let cell: RxViewModable = collectionView.dequeueReusableViewModable(cellType: item.cellType, for: indexPath)
         cell.setupWith(viewModel: item)
         return cell as? RxCollectionViewCell ?? RxCollectionViewCell()
