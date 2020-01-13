@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 open class NibView: UIView {
-    var view: UIView!
+    public var view: UIView!
     override init(frame: CGRect) {
         super.init(frame: frame)
         // Setup view from .xib file

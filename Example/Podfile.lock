@@ -16,11 +16,11 @@ PODS:
   - RxViewController (0.4.1):
     - RxCocoa (>= 4.0.0)
     - RxSwift (>= 4.0.0)
-  - SBHelpers (0.1.0):
-    - SBHelpers/Core (= 0.1.0)
-  - SBHelpers/Core (0.1.0):
+  - SBHelpers (0.1.2):
+    - SBHelpers/Core (= 0.1.2)
+  - SBHelpers/Core (0.1.2):
     - AlamofireImage (~> 3.5)
-  - SBHelpers/Rx (0.1.0):
+  - SBHelpers/Rx (0.1.2):
     - RxCocoa (~> 4.5)
     - RxDataSources (~> 3.1)
     - RxKeyboard (~> 0.9)
@@ -55,7 +55,7 @@ SPEC CHECKSUMS:
   RxKeyboard: 4f782303f499f41577b41c96c6a9a5d7acd51a47
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   RxViewController: e93e7c233d5b5b62c32231d69726d55f54081bc6
-  SBHelpers: 69019a557f4270cbde58b098a9b02c33be8d9fdf
+  SBHelpers: d4a8131d0c86a638c1651749ae50e7e25a27f7a2
 
 PODFILE CHECKSUM: 83357ed8b8f0842e3c4ed4ac5c8efe6c878c06d7
 

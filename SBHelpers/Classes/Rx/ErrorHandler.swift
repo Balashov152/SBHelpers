@@ -25,7 +25,7 @@ open class HandlerError {
 }
 
 public extension PrimitiveSequence where TraitType == SingleTrait {
-    public func catchError(_ handler: ErrorHandler, empty: Element) -> Observable<E> {
+    func catchError(_ handler: ErrorHandler, empty: Element) -> Observable<E> {
         catchError { (error) -> Single<E> in
             if ErrorHandlerConfig.handlerError.needHandlerError(error: error) {
                 handler.error.onNext(error)
@@ -34,7 +34,7 @@ public extension PrimitiveSequence where TraitType == SingleTrait {
         }.asObservable()
     }
 
-    public func catchErrorNever(_ handler: ErrorHandler) -> Observable<E> {
+    func catchErrorNever(_ handler: ErrorHandler) -> Observable<E> {
         catchError { (error) -> Single<E> in
             if ErrorHandlerConfig.handlerError.needHandlerError(error: error) {
                 handler.error.onNext(error)
@@ -43,7 +43,7 @@ public extension PrimitiveSequence where TraitType == SingleTrait {
         }.asObservable()
     }
 
-    public func catchError(_ handler: ErrorHandler, empty: Element) -> Single<E> {
+    func catchError(_ handler: ErrorHandler, empty: Element) -> Single<E> {
         catchError { (error) -> Single<E> in
             if ErrorHandlerConfig.handlerError.needHandlerError(error: error) {
                 handler.error.onNext(error)
@@ -52,7 +52,7 @@ public extension PrimitiveSequence where TraitType == SingleTrait {
         }
     }
 
-    public func catchErrorNever(_ handler: ErrorHandler) -> Single<E> {
+    func catchErrorNever(_ handler: ErrorHandler) -> Single<E> {
         catchError { (error) -> Single<E> in
             if ErrorHandlerConfig.handlerError.needHandlerError(error: error) {
                 handler.error.onNext(error)
@@ -63,7 +63,7 @@ public extension PrimitiveSequence where TraitType == SingleTrait {
 }
 
 public extension Observable {
-    public func catchErrorNever(_ handler: ErrorHandler) -> Observable<E> {
+    func catchErrorNever(_ handler: ErrorHandler) -> Observable<E> {
         catchError { (error) -> Observable<E> in
             if ErrorHandlerConfig.handlerError.needHandlerError(error: error) {
                 handler.error.onNext(error)
@@ -72,7 +72,7 @@ public extension Observable {
         }.asObservable()
     }
 
-    public func catchError(_ handler: ErrorHandler, empty: Element) -> Observable<E> {
+    func catchError(_ handler: ErrorHandler, empty: Element) -> Observable<E> {
         catchError { (error) -> Observable<E> in
             if ErrorHandlerConfig.handlerError.needHandlerError(error: error) {
                 handler.error.onNext(error)
