@@ -36,7 +36,6 @@ Pod::Spec.new do |s|
   
   s.subspec "Core" do |ss|
     ss.source_files = "SBHelpers/Classes/Core/**/*"
-    ss.dependency 'AlamofireImage', '~> 3.5'
   end
 
   s.subspec "Rx" do |ss|
