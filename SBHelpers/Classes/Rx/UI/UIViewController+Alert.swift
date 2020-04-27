@@ -23,8 +23,8 @@ extension UIViewController {
         })
     }
 
-    public func showErrorAlert(errorMessage: String?) {
-        showOKAlert(title: "Error".localized, message: errorMessage)
+    public func showErrorAlert(title: String? = "Error", errorMessage: String?) {
+        showOKAlert(title: title, message: errorMessage)
     }
 
     public func showOKAlert(title: String?, message: String?, okAction: @escaping () -> Void = {}) {
@@ -35,13 +35,15 @@ extension UIViewController {
         present(alertController, animated: true)
     }
 
-    public func showConfirmAlert(title: String?, message: String?) -> Single<Bool> {
+    public func showConfirmAlert(title: String?, message: String?,
+                                 titleTrue: String? = "Yes", titleFalse: String? = "Cancel") -> Single<Bool> {
+        
         Single<Bool>.create { [weak self] (event) -> Disposable in
             let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Yes".localized, style: .destructive, handler: { _ in
+            alertController.addAction(UIAlertAction(title: titleTrue, style: .destructive, handler: { _ in
                 event(.success(true))
             }))
-            alertController.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { _ in
+            alertController.addAction(UIAlertAction(title: titleFalse, style: .cancel, handler: { _ in
                 event(.success(false))
             }))
             self?.present(alertController, animated: true)

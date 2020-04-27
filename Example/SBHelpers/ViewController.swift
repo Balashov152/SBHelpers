@@ -15,8 +15,8 @@ class ViewController: UIViewController {
         _ = [1, 2, 3].contains(oneOfCollection: [1, 2]) // return true
         _ = [1, 2, 3].contains(oneOfCollection: [7, 9]) // return false
         
-        _ = [1, 2, 3].safeElement(index: 0) // return 1
-        _ = [1, 2, 3].safeElement(index: 7) // return nil, without crash
+        _ = [1, 2, 3][safe: 0] // return 1
+        _ = [1, 2, 3][safe: 7] // return nil, without crash
         
         _ = [1, 2, 3].unique // return [1, 2, 3]
         _ = [3, 3, 3].unique // return [3]
@@ -42,10 +42,6 @@ class ViewController: UIViewController {
     func checkNSAttributedStringEx() {
         _ = NSAttributedString.strike(value: "12345") // return strike 12345
         _ = NSAttributedString.iconImage(UIImage(), titleFont: .systemFont(ofSize: 14)) // return image string
-    }
-    
-    func checkShareService() {
-        ShareService.share(controller: self, items: []) //open default share alert
     }
     
     func checkStringEx() {
