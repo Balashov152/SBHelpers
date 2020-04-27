@@ -2,29 +2,32 @@ PODS:
   - Alamofire (4.9.1)
   - AlamofireImage (3.6.0):
     - Alamofire (~> 4.9)
-  - Differentiator (3.1.0)
-  - RxCocoa (4.5.0):
-    - RxSwift (>= 4.4.2, ~> 4.4)
-  - RxDataSources (3.1.0):
-    - Differentiator (~> 3.0)
-    - RxCocoa (~> 4.0)
-    - RxSwift (~> 4.0)
-  - RxKeyboard (0.9.0):
-    - RxCocoa (>= 4.3.1)
-    - RxSwift (>= 4.3.1)
-  - RxSwift (4.5.0)
+  - Differentiator (4.0.1)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxDataSources (4.0.1):
+    - Differentiator (~> 4.0)
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxKeyboard (1.0.0):
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.1)
   - RxViewController (0.4.1):
     - RxCocoa (>= 4.0.0)
     - RxSwift (>= 4.0.0)
-  - SBHelpers (0.1.2):
-    - SBHelpers/Core (= 0.1.2)
-  - SBHelpers/Core (0.1.2):
+  - SBHelpers (0.2.0):
+    - SBHelpers/Core (= 0.2.0)
+  - SBHelpers/Core (0.2.0):
     - AlamofireImage (~> 3.5)
-  - SBHelpers/Rx (0.1.2):
-    - RxCocoa (~> 4.5)
-    - RxDataSources (~> 3.1)
-    - RxKeyboard (~> 0.9)
-    - RxSwift (~> 4.5)
+  - SBHelpers/Rx (0.2.0):
+    - RxCocoa (~> 5.1)
+    - RxDataSources (~> 4.0)
+    - RxKeyboard (~> 1.0)
+    - RxSwift (~> 5.1)
     - RxViewController (~> 0.4)
 
 DEPENDENCIES:
@@ -39,6 +42,7 @@ SPEC REPOS:
     - RxCocoa
     - RxDataSources
     - RxKeyboard
+    - RxRelay
     - RxSwift
     - RxViewController
 
@@ -49,13 +53,14 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   AlamofireImage: be9963c6582d68b39e89191f64c82a7d7bf40fdd
-  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
-  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
-  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
-  RxKeyboard: 4f782303f499f41577b41c96c6a9a5d7acd51a47
-  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
+  RxKeyboard: 6683c4344304a00f943c158bd8a43ce5469c82a7
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   RxViewController: e93e7c233d5b5b62c32231d69726d55f54081bc6
-  SBHelpers: d4a8131d0c86a638c1651749ae50e7e25a27f7a2
+  SBHelpers: cac175ce37cf8950296a7c7d5232982a8b2ee7b1
 
 PODFILE CHECKSUM: 83357ed8b8f0842e3c4ed4ac5c8efe6c878c06d7
 
