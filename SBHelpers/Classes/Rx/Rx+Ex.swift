@@ -3,7 +3,7 @@
 //  SellFashion
 //
 //  Created by Sergey Balashov on 05.11.2019.
-//  Copyright © 2019 Egor Otmakhov. All rights reserved.
+//  Copyright © 2019 Sellfashion. All rights reserved.
 //
 
 import RxCocoa
@@ -22,7 +22,7 @@ public extension ObservableType {
         }
     }
 
-    func weakMap<A: AnyObject, R>(weak obj: A, method: @escaping (A) -> (Self.E) -> R) -> Observable<R> {
+    func weakMap<A: AnyObject, R>(weak obj: A, method: @escaping (A) -> (Self.Element) -> R) -> Observable<R> {
         return flatMap { [weak obj] (value) -> Observable<R> in
             guard let obj = obj else { return .empty() }
             return .just(method(obj)(value))
@@ -30,28 +30,28 @@ public extension ObservableType {
     }
 }
 
-public extension PrimitiveSequence where TraitType == SingleTrait {
+public extension PrimitiveSequence where Trait == SingleTrait {
     func mapToVoid() -> Single<Void> {
         return map { _ in Void() }
     }
 }
 
 public extension SharedSequence {
-    func unwrap<T>() -> SharedSequence<S, T> where E == T? {
+    func unwrap<T>() -> SharedSequence<SharingStrategy, T> where Element == T? {
         return filter { $0 != nil }.map { $0! }
     }
 }
 
 public extension ObservableType {
-    func unwrap<T>() -> Observable<T> where E == T? {
+    func unwrap<T>() -> Observable<T> where Element == T? {
         return filter { $0 != nil }.map { $0! }
     }
 }
 
 public extension ObservableType {
     func bindValue<T>(to: BehaviorRelay<T?>,
-                      predicate: ((T?, E) -> Bool)? = nil,
-                      update: @escaping (inout T?, E) -> Void) -> Disposable {
+                      predicate: ((T?, Element) -> Bool)? = nil,
+                      update: @escaping (inout T?, Element) -> Void) -> Disposable {
         subscribe(onNext: { [weak to] value in
             var model = to?.value
             if predicate?(model, value) ?? true {
@@ -62,8 +62,8 @@ public extension ObservableType {
     }
 
     func bind<T>(to: BehaviorRelay<T>,
-                 predicate: ((T?, E) -> Bool)? = nil,
-                 update: @escaping (inout T, E) -> Void) -> Disposable {
+                 predicate: ((T?, Element) -> Bool)? = nil,
+                 update: @escaping (inout T, Element) -> Void) -> Disposable {
         subscribe(onNext: { [weak to] value in
             guard var model = to?.value else { return }
             if predicate?(model, value) ?? true {
@@ -102,7 +102,7 @@ extension ObservableType {
      - parameter on: Function to invoke on `weak` for each event in the observable sequence.
      - returns: Subscription object used to unsubscribe from the observable sequence.
      */
-    public func subscribe<A: AnyObject>(weak obj: A, _ on: @escaping (A) -> (RxSwift.Event<Self.E>) -> Void) -> Disposable {
+    public func subscribe<A: AnyObject>(weak obj: A, _ on: @escaping (A) -> (RxSwift.Event<Self.Element>) -> Void) -> Disposable {
         return subscribe(weakify(obj, method: on))
     }
 
@@ -119,7 +119,7 @@ extension ObservableType {
      */
     public func subscribe<A: AnyObject>(
         weak obj: A,
-        onNext: ((A) -> (Self.E) -> Void)? = nil,
+        onNext: ((A) -> (Self.Element) -> Void)? = nil,
         onError: ((A) -> (Error) -> Void)? = nil,
         onCompleted: ((A) -> () -> Void)? = nil,
         onDisposed: ((A) -> () -> Void)? = nil
@@ -133,7 +133,7 @@ extension ObservableType {
             disposable = Disposables.create()
         }
 
-        let observer = AnyObserver { [weak obj] (error: RxSwift.Event<Self.E>) in
+        let observer = AnyObserver { [weak obj] (error: RxSwift.Event<Self.Element>) in
             guard let obj = obj else { return }
             switch error {
             case let .next(value):
@@ -157,7 +157,7 @@ extension ObservableType {
      - parameter onNext: Function to invoke on `weak` for each element in the observable sequence.
      - returns: Subscription object used to unsubscribe from the observable sequence.
      */
-    public func subscribeNext<A: AnyObject>(weak obj: A, _ onNext: @escaping (A) -> (Self.E) -> Void) -> Disposable {
+    public func subscribeNext<A: AnyObject>(weak obj: A, _ onNext: @escaping (A) -> (Self.Element) -> Void) -> Disposable {
         return subscribe(onNext: weakify(obj, method: onNext))
     }
 

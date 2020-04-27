@@ -3,9 +3,11 @@
 //  SellFashion
 //
 //  Created by Sergey Balashov on 08/10/2019.
-//  Copyright © 2019 Egor Otmakhov. All rights reserved.
+//  Copyright © 2019 Sellfashion. All rights reserved.
 //
 
+// paper url
+// https://medium.com/grand-parade/computing-the-diff-of-two-arrays-in-a-functional-way-in-swift-be82a586a821
 public struct DiffIterative {
     public struct SequenceDiff<T1, T2> {
         public let common: [(T1, T2)]
@@ -27,6 +29,13 @@ public struct DiffIterative {
     }
 
     private static func diffIterativeBase<T1, T2>(_ first: [T1], _ second: [T2], with compare: (_ first: T1, _ second: T2) -> Bool, with compare2: (T2, T2) -> Bool) -> SequenceDiff<T1, T2> {
+//        let combinations = first.map { firstElement in (firstElement, second.first { secondElement in compare(firstElement, secondElement) }) }
+//        let common = combinations.filter { $0.1 != nil }.map { ($0.0, $0.1!) }
+//        let removed = combinations.filter { $0.1 == nil }.map { ($0.0) }
+//        let inserted = second.filter { secondElement in !common.contains { compare($0.0, secondElement) } }
+//
+//        return SequenceDiff(common: common, removed: removed, inserted: inserted)
+
         if first.count == 0 {
             return SequenceDiff(inserted: second)
         }

@@ -23,9 +23,18 @@ open class RxTableViewModel: RxViewModel, RxTableViewModeble {
 public protocol RxSaveViewModelble: RxTableViewModel {
     var didTapSaveButton: PublishSubject<Void> { get set }
     var isEnableSaveButton: BehaviorRelay<Bool> { get set }
+    var isHideSaveButton: BehaviorRelay<Bool> { get set }
+}
+
+extension RxSaveViewModelble {
+    var isHideSaveButton: BehaviorRelay<Bool> {
+        get { BehaviorRelay<Bool>(value: false) }
+        set { print("isHideSaveButton: ", newValue) }
+    }
 }
 
 open class RxSaveViewModel: RxTableViewModel, RxSaveViewModelble {
     public var didTapSaveButton = PublishSubject<Void>()
     public var isEnableSaveButton = BehaviorRelay<Bool>(value: false)
+    public var isHideSaveButton = BehaviorRelay<Bool>(value: false)
 }

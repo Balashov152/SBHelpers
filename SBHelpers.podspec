@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SBHelpers'
-  s.version          = '0.1.7'
+  s.version          = '0.2.0'
   s.summary          = 'SBHelpers write on Swift 5.0. Include extensions and structs for making life easier'
   s.swift_versions   = '5.0'
 # This description is used to generate tags and improve search results.
@@ -41,10 +41,10 @@ Pod::Spec.new do |s|
 
   s.subspec "Rx" do |ss|
     ss.source_files = "SBHelpers/Classes/Rx/**/*"
-    ss.dependency "RxSwift", "~> 4.5"
-    ss.dependency "RxCocoa", "~> 4.5"
-    ss.dependency "RxDataSources", "~> 3.1"
-    ss.dependency "RxKeyboard", '~> 0.9'
+    ss.dependency "RxSwift", "~> 5.1"
+    ss.dependency "RxCocoa", "~> 5.1"
+    ss.dependency "RxDataSources", "~> 4.0"
+    ss.dependency "RxKeyboard", '~> 1.0'
     ss.dependency "RxViewController", '~> 0.4'
   end
 

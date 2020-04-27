@@ -3,11 +3,10 @@
 //  SellFashion
 //
 //  Created by Sergey Balashov on 09.01.2020.
-//  Copyright © 2020 Egor Otmakhov. All rights reserved.
+//  Copyright © 2020 Sellfashion. All rights reserved.
 //
 
 import struct Alamofire.DataResponse
-import AlamofireImage
 import UIKit
 
 public extension UIImageView {
@@ -18,12 +17,14 @@ public extension UIImageView {
     }
 
     func setImage(urlRequest request: URLRequest, result: ((DataResponse<UIImage>) -> Void)?) {
+        af_cancelImageRequest()
         var activityIndicator: UIActivityIndicatorView! = subviews.first(where: { $0 is UIActivityIndicatorView }) as? UIActivityIndicatorView
 
         if activityIndicator == nil {
             activityIndicator = newActivityIndicator()
 
             addSubview(activityIndicator)
+            activityIndicator.translatesAutoresizingMaskIntoConstraints = false
             activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
             activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
             if image == nil {
@@ -44,7 +45,7 @@ public extension UIImageView {
                         }
                     },
                     progressQueue: .main,
-                    imageTransition: .crossDissolve(0.5),
+                    imageTransition: .crossDissolve(0.2), //
                     runImageTransitionIfCached: false, completion: { completion in
                         result?(completion)
                         activityIndicator.stopAnimating()

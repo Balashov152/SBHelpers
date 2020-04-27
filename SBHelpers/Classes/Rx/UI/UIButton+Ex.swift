@@ -3,7 +3,7 @@
 //  SellFashion
 //
 //  Created by Sergey Balashov on 21.10.2019.
-//  Copyright © 2019 Egor Otmakhov. All rights reserved.
+//  Copyright © 2019 Sellfashion. All rights reserved.
 //
 
 import RxCocoa
@@ -21,9 +21,11 @@ extension Reactive where Base: UIButton {
 
     public var nonAnimationTitle: Binder<String?> {
         return Binder<String?>(base, binding: { button, title in
-            UIView.performWithoutAnimation {
-                button.setTitle(title, for: .normal)
-                button.layoutIfNeeded()
+            DispatchQueue.main.async {
+                UIView.performWithoutAnimation {
+                    button.setTitle(title, for: .normal)
+                    button.layoutIfNeeded()
+                }
             }
         })
     }

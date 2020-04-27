@@ -10,9 +10,8 @@ import Foundation
 import UIKit
 
 public extension UIApplication {
-    
     var statusBarViewAnimationDuration: Double { 0.3 }
-    
+
     /// Returns the status bar UIView
     var statusBarView: UIView? {
         if #available(iOS 13.0, *) {} else {

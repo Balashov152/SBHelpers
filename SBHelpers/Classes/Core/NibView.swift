@@ -18,7 +18,7 @@ open class NibView: UIView {
         commonInit()
     }
 
-    required public init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         // Setup view from .xib file
         xibSetup()

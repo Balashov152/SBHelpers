@@ -3,7 +3,7 @@
 //  SellFashion
 //
 //  Created by Sergey on 19/07/2019.
-//  Copyright © 2019 Egor Otmakhov. All rights reserved.
+//  Copyright © 2019 Sellfashion. All rights reserved.
 //
 
 import class Foundation.Bundle
@@ -11,6 +11,7 @@ import class Foundation.DispatchQueue
 import struct Foundation.IndexPath
 
 import struct UIKit.CGPoint
+import class UIKit.UIApplication
 import class UIKit.UINib
 import class UIKit.UITableView
 import class UIKit.UITableViewCell
@@ -31,6 +32,11 @@ public extension UITableView {
     func dequeueReusableCell<T: UITableViewCell>(for row: Int) -> T {
         let indexPath = IndexPath(row: row, section: 0)
         return dequeueReusableCell(withIdentifier: "\(T.self)", for: indexPath) as! T // swiftlint:disable:this force_cast
+    }
+
+    func scrollToTop(animated: Bool) {
+        let bottomOffset = CGPoint(x: 0, y: -adjustedContentInset.top)
+        setContentOffset(bottomOffset, animated: animated)
     }
 
     func scrollToBottom(animated: Bool) {

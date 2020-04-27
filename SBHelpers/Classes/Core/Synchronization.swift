@@ -3,13 +3,13 @@
 //  SellFashion
 //
 //  Created by Sergey Balashov on 05.12.2019.
-//  Copyright © 2019 Egor Otmakhov. All rights reserved.
+//  Copyright © 2019 Sellfashion. All rights reserved.
 //
 
 import Foundation
 
 public struct Synchronization {
-    static public func sync<Item: Equatable>(item: Item, inCollection array: inout [Item], limit: Int) {
+    public static func sync<Item: Equatable>(item: Item, inCollection array: inout [Item], limit: Int) {
         if limit == 1 {
             array.removeAll()
             array.append(item)

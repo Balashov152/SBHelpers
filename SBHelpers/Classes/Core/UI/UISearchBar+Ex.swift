@@ -3,7 +3,7 @@
 //  SellFashion
 //
 //  Created by Sergey Balashov on 09.01.2020.
-//  Copyright © 2020 Egor Otmakhov. All rights reserved.
+//  Copyright © 2020 Sellfashion. All rights reserved.
 //
 
 import UIKit

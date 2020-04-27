@@ -3,7 +3,7 @@
 //  SellFashion
 //
 //  Created by Sergey Balashov on 02/09/2019.
-//  Copyright © 2019 Egor Otmakhov. All rights reserved.
+//  Copyright © 2019 Sellfashion. All rights reserved.
 //
 
 import class UIKit.UIStackView
